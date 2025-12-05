@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SEAM-Gen</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <!-- 标题 -->
+          <h1 class="title is-1 publication-title">
+            SEAM_Gen:<br>Scenario-driven Emotion-aware unified 3D Human Audio and Motion Generation<br>
+          </h1>
+
+          <!-- 作者一行展示、无邮箱、无加粗 -->
+          <div class="is-size-5 mb-2" style="font-family: 'Google Sans', sans-serif;">
+            Anonymous ICME submission
+          </div>
+
+          <!-- 会议信息 -->
+          <p class="subtitle is-5 mt-2 same-font">
+            ICME 2025
+          </p>
+          <style>
+          .same-font {
+            font-family: 'Google Sans', sans-serif; /* 和标题同字体 */
+            font-weight: normal; /* 去掉加粗 */
+          }
+          </style>
+
+          <!-- 论文链接
+          <div class="publication-links mt-4">
+            <span class="link-block">
+              <a href=""
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="xxx"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.png" alt="Teaser figure" style="width: 100%;">
+      <h2 class="subtitle has-text-centered">
+        SEAM-Gen generates emotion-controllable and semantically aligned 3D human motion and audio driven by real-world scenarios.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-combined">
+          <video poster="" id="combined" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos_combined/1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-t2m">
+          <video poster="" id="t2m" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos_t2m/1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-bottom: 2rem;">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In real-world scenarios, human behavior is essentially a multimodal, aligned composite, where linguistic content, emotional states, and bodily movements exhibit a high degree of consistency in specific contexts. 
+            This presents a critical challenge for the modeling of digital human motion generation. 
+            Existing motion generation methods are generally constrained by simple conditional control paradigms and fail to fully account for the joint influence of real-world semantics and contextual emotions on the collaborative generation of digital human motions and audio. 
+          </p>
+          <p>
+            We propose the novel unified multimodal dataset, <b>SEAM-3D</b>, which covers five elements in strictly aligned form across multiple scenarios: human body movements, multilingual audio, spoken text, scene descriptions, and emotion labels. 
+            This dataset overcomes the limitations of existing data in the dimension of real-world-driven scenarios. We design a scene-aware unified generation framework, <b>SEAM-Gen</b>, which leverages contextual semantics to guide the cross-scenario, emotion-controllable joint generation of motions and audio. 
+            Extensive experiments confirm that this framework effectively parses the semantic hierarchy of scenes, significantly outperforming baseline methods in both motion naturalness and multimodal alignment accuracy, thus providing new possibilities for context-aware digital human generation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="paper-video" controls playsinline width="100%">
+            <source src="xxx"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Dataset. -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
+        <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
+        <p class="has-text-justified" style="margin-top: 1.5rem;">
+          <b>Dataset Demo.</b> We introduce the SEAM-3D dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally
+          and motionally appropriate actions based on specific scene utterances and record emotion-rich audio.
+          <!-- More visualisations of motion–utterance pairs from the dataset. (a) A rain-shielding scenario on a rainy day; (b) writing problem-solving steps on the blackboard in a teaching scenario; (c) fanning in a hot environment; (d) stepping forward to embrace a long-unseen friend. -->
+        </p>
+      </div>
+    </div>
+    
+    <!--/ Dataset. -->
+
+    <!-- Method Overview. -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Method</h2>
+        <img src="./static/images/pipeline.png" alt="Overview" style="width: 100%;">
+        <p class="has-text-justified" style="margin-top: 1.5rem;">
+          <b>Method Overview.</b> Our unified framework consists of two generation modules: Aligned Utterance-Audio Generation and Text-to-Motion Generation. Both modules take scenario text and emotion label as input, with audio features serving as a bridge, generating semantically consistent and pose-aligned motion and audio.</b>
+          <!-- Our framework takes an emotion label and a scenario text as inputs, which are fed into two branches: an Aligned Utterance–Audio Generation branch and a Text-to-Motion Generation branch. The two branches are connected via the audio feature(i.e., the mel-spectrogram), enabling the generation of emotion-guided and temporally synchronized motion, facial expressions, and audio in the specific scene. -->
+        </p>
+      </div>
+    </div>
+  </div>
+    <!--/ Method Overview. -->
+
+    <!-- Results. -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
+
+      </div>
+    </div>
+    <!--/ Results. -->
+
+
+    <!-- Contributions. -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Contributions</h2>
+
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Contributions. -->
+
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title has-text-centered">BibTeX</h2>
+    <pre><code>@article{anonymous2025scenario,
+  author    = {Anonymous},
+  title     = {Scenario-driven Emotion-aware unified human audio and motion generation and control},
+  journal   = {ICME},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
