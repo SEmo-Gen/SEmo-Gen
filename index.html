@@ -48,7 +48,7 @@
 
           <!-- 标题 -->
           <h1 class="title is-1 publication-title">
-            SEAM-Gen:<br>Scenario-driven Emotion-aware unified 3D Human Audio and Motion Generation<br>
+            SEAM-Gen:<br><b>S</b>cenario-driven <b>E</b>motion-aware unified 3D Human <b>A</b>udio and <b>M</b>otion Generation<br>
           </h1>
 
         </div>
@@ -99,14 +99,12 @@
         <h2 class="title is-3" style="margin-bottom: 2rem;">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In real-world scenarios, human behavior is essentially a multimodal, aligned composite, where linguistic content, emotional states, and bodily movements exhibit a high degree of consistency in specific contexts. 
-            This presents a critical challenge for the modeling of digital human motion generation. 
-            Existing motion generation methods are generally constrained by simple conditional control paradigms and fail to fully account for the joint influence of real-world semantics and contextual emotions on the collaborative generation of digital human motions and audio. 
+            In real-world scenarios, human behaviors are not merely mechanical executions of actions (e.g., simply "lifting a hand to the face") but are complex reactions driven by contextual intents and emotional states (e.g., stepping back and covering the mouth in disbelief upon hearing shocking news). 
+            However, existing motion generation methods primarily focus on explicit action verbs, often ignoring the rich scenario-based semantics that dictate the style, dynamics, and emotional nuance of the movement.
           </p>
           <p>
-            We propose the novel unified multimodal dataset, <b>SEAM-3D</b>, which covers five elements in strictly aligned form across multiple scenarios: human body movements, multilingual audio, spoken text, scene descriptions, and emotion labels. 
-            This dataset overcomes the limitations of existing data in the dimension of real-world-driven scenarios. We design a scene-aware unified generation framework, <b>SEAM-Gen</b>, which leverages contextual semantics to guide the cross-scenario, emotion-controllable joint generation of motions and audio. 
-            Extensive experiments confirm that this framework effectively parses the semantic hierarchy of scenes, significantly outperforming baseline methods in both motion naturalness and multimodal alignment accuracy, thus providing new possibilities for context-aware digital human generation.
+            To address this limitation, we introduce SEAM-X, the first unified multimodal dataset that provides strictly aligned 5-element tuples: 3D motion, bilingual audio, utterances, emotion labels, and context-rich scenario descriptions. 
+            Unlike traditional datasets that treat actions in isolation, SEAM-X explicitly couples actions with their causal scenarios.
           </p>
         </div>
       </div>
@@ -139,7 +137,7 @@
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
         <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Dataset Demo.</b> We introduce the SEAM-3D dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally
+          <b>Dataset Demo.</b> We introduce the SEAM-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally
           and motionally appropriate actions based on specific scene utterances and record emotion-rich audio.
           <!-- More visualisations of motion–utterance pairs from the dataset. (a) A rain-shielding scenario on a rainy day; (b) writing problem-solving steps on the blackboard in a teaching scenario; (c) fanning in a hot environment; (d) stepping forward to embrace a long-unseen friend. -->
         </p>
@@ -166,6 +164,29 @@
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
+        
+        <div class="columns is-vcentered" style="margin-top: 2rem;">
+          <div class="column">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
+                <source src="./static/videos_combined/say_hi_happy.mp4" type="video/mp4">
+              </video>
+              <p style="margin: 0 1rem; font-size: 1rem; color: #363636; text-align: center; min-height: 3.2em;">
+                Say Hi (Happy)
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
+                <source src="./static/videos_combined/write_on_the_blackboard_neutral.mp4" type="video/mp4">
+              </video>
+              <p style="margin: 0 1rem; font-size: 1rem; color: #363636; text-align: center; min-height: 3.2em;">
+                Write on the Blackboard (Neutral)
+              </p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
