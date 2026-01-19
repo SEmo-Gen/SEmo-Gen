@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SEAM-Gen</title>
+  <title>SEmo-Gen</title>
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,10 +46,12 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-          <!-- 标题 -->
-          <h1 class="title is-1 publication-title">
-            SEAM-Gen:<br><b>S</b>cenario-driven <b>E</b>motion-aware unified 3D Human <b>A</b>udio and <b>M</b>otion Generation<br>
-          </h1>
+        <h1 class="title is-1 publication-title">
+          <span style="color: #A063D3;">S</span><span style="color: #EE912A;">Emo</span>-Gen: 
+          Unified <span style="color: #EE912A;">Semantics-guided</span> and 
+          <span style="color: #A063D3;">Emotion-aware</span> Generation <br>
+          of 3D Human Motion, Expression and Audio
+        </h1>
 
         </div>
       </div>
@@ -62,7 +64,7 @@
     <div class="hero-body">
       <img src="./static/images/teaser.png" alt="Teaser figure" style="width: 100%;">
       <h2 class="subtitle has-text-centered">
-        SEAM-Gen generates emotion-controllable and semantically aligned 3D human motion and audio driven by real-world scenarios.
+        SEmo-Gen generates emotion-guided and semantically aligned 3D motion, expression, and audio driven by real-world scenarios.
       </h2>
     </div>
   </div>
@@ -99,12 +101,12 @@
         <h2 class="title is-3" style="margin-bottom: 2rem;">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In real-world scenarios, human behaviors are not merely mechanical executions of actions (e.g., simply "lifting a hand to the face") but are complex reactions driven by contextual intents and emotional states (e.g., stepping back and covering the mouth in disbelief upon hearing shocking news). 
-            However, existing motion generation methods primarily focus on explicit action verbs, often ignoring the rich scenario-based semantics that dictate the style, dynamics, and emotional nuance of the movement.
-          </p>
-          <p>
-            To address this limitation, we introduce SEAM-X, the first unified multimodal dataset that provides strictly aligned 5-element tuples: 3D motion, bilingual audio, utterances, emotion labels, and context-rich scenario descriptions. 
-            Unlike traditional datasets that treat actions in isolation, SEAM-X explicitly couples actions with their causal scenarios.
+            In the real world, human behaviors are not merely mechanical executions (e.g., lifting the right hand) but complex reactions driven by scenario semantics and emotional states (e.g., stepping back and covering the mouth in disbelief upon hearing shocking news). However, existing motion generation methods primarily focus on explicit action verbs, often neglecting the rich scenario-based semantics and emotional states that dictate movement style and dynamics. 
+            Moreover, neglecting the intrinsic synergy among the deeply interconnected modalities of motion, expression, and audio under shared semantic and affective contexts results in fragmented behaviors lacking coherence and authenticity.
+            In this paper, we propose SEmo-Gen, a unified framework for synchronized 3D motion, expression, and audio generation that enables fine-grained emotional differentiation across diverse scenario semantics.
+            To address semantic–emotion conflicts, SEmo-Gen introduces the decoupled semantic-emotion schemes and the custom kinematic loss that enhances emotion-aware physical expressiveness.
+            Furthermore, we present SEmo-X, the first multimodal dataset that provides strictly aligned motion, bilingual audio, utterances, emotions, and scenario semantics, along with an emotion-controllable, scenario-guided human motion generation benchmark SEmo-bench on the SMPL-X format.
+            Extensive experiments confirm that SEmo-Gen significantly outperforms baselines in emotion expressivity and semantic alignment, marking a shift from instruction-following to scenario-comprehending and emotion-driven digital human synthesis.
           </p>
         </div>
       </div>
@@ -137,7 +139,7 @@
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
         <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Dataset Demo.</b> We introduce the SEAM-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally
+          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally
           and motionally appropriate actions based on specific scene utterances and record emotion-rich audio.
           <!-- More visualisations of motion–utterance pairs from the dataset. (a) A rain-shielding scenario on a rainy day; (b) writing problem-solving steps on the blackboard in a teaching scenario; (c) fanning in a hot environment; (d) stepping forward to embrace a long-unseen friend. -->
         </p>
