@@ -26,6 +26,34 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .comparison-table td, .comparison-table th {
+      padding: 5px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .comparison-table video {
+      width: 100%;
+      border: 1px solid #333;
+      border-radius: 4px;
+    }
+    .model-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .scenario-text {
+      font-weight: bold;
+      font-size: 0.9rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -45,11 +73,9 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-
-        <h1 class="title is-1 publication-title">
-          <span style="color: #A063D3;">S</span><span style="color: #EE912A;">Emo</span>-Gen: Unified <span style="color: #EE912A;">Semantics-guided</span> and <span style="color: #A063D3;">Emotion-aware</span> Generation of 3D Human Motion, Expression and Audio
-        </h1>
-
+          <h1 class="title is-1 publication-title">
+            <span style="color: #A063D3;">S</span><span style="color: #EE912A;">Emo</span>-Gen: Unified <span style="color: #EE912A;">Semantics-guided</span> and <span style="color: #A063D3;">Emotion-aware</span> Generation of 3D Human Motion, Expression and Audio
+          </h1>
         </div>
       </div>
     </div>
@@ -59,7 +85,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/teaser_v2.png" alt="Teaser figure" style="width: 100%;">
+      <img src="./static/images/teaser.png" alt="Teaser figure" style="width: 100%;">
       <h2 class="subtitle has-text-centered">
         SEmo-Gen generates emotion-guided and semantically aligned 3D motion, expression, and audio driven by real-world scenarios.
       </h2>
@@ -67,32 +93,8 @@
   </div>
 </section>
 
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-combined">
-          <video poster="" id="combined" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos_combined/1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-t2m">
-          <video poster="" id="t2m" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos_t2m/1.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3" style="margin-bottom: 2rem;">Abstract</h2>
@@ -108,61 +110,105 @@
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <video id="paper-video" controls playsinline width="100%">
-            <source src="xxx"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
-
-    <!-- Dataset. -->
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
         <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally
-          and motionally appropriate actions based on specific scene utterances and record emotion-rich audio.
-          <!-- More visualisations of motion–utterance pairs from the dataset. (a) A rain-shielding scenario on a rainy day; (b) writing problem-solving steps on the blackboard in a teaching scenario; (c) fanning in a hot environment; (d) stepping forward to embrace a long-unseen friend. -->
+          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally and motionally appropriate actions based on specific scene utterances and record emotion-rich audio.
         </p>
       </div>
     </div>
-    
-    <!--/ Dataset. -->
 
-    <!-- Method Overview. -->
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Method</h2>
-        <img src="./static/images/pipeline.png" alt="Overview" style="width: 100%;">
+        <img src="./static/images/teaser_v2.png" alt="Overview" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Method Overview.</b> Overview. Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio. The Audio branch synthesizes emotion-aware mel-spectrograms and audio to establish a cross-modal foundation. Simultaneously, the Motion branch integrates $f_{emo}$ and $f_{sem}$ through an expression generator and SEmo-DiT, yielding synchronized expressions and holistic poses.
+          <b>Method Overview.</b> Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio. The Audio branch synthesizes emotion-aware mel-spectrograms and audio to establish a cross-modal foundation. Simultaneously, the Motion branch integrates $f_{emo}$ and $f_{sem}$ through an expression generator and SEmo-DiT, yielding synchronized expressions and holistic poses.
         </p>
       </div>
     </div>
-  </div>
-    <!--/ Method Overview. -->
 
-    <!-- Results. -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Comparison under complex scenario semantics</h2>
+        
+        <div class="content">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 120px;"></th>
+                <th class="scenario-text" style="color: #4A90E2;">A person crosses the arms to stay warm in cold weather</th>
+                <th class="scenario-text" style="color: #E91E63;">A person gives a thumbs up to show the appreciation</th>
+                <th class="scenario-text" style="color: #FBC02D;">A person points to their watch to indicate running out of time</th>
+                <th class="scenario-text" style="color: #7CB342;">A person extends their hand to shake hands and begin conversations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="model-name">MDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_mdm.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_mdm.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_mdm.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_mdm.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">Stable MoFusion</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_stablemofusion.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_stablemofusion.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_stablemofusion.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_stablemofusion.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionGPT</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_motiongpt.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_motiongpt.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_motiongpt.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_motiongpt.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">SALAD</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_salad.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_salad.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_salad.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_salad.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MARDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_MARDM.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_MARDM.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_MARDM.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_MARDM.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionCraft</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_motioncraft.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_motioncraft.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_motioncraft.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_motioncraft.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name" style="color: #A063D3;">Ours</td>
+                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/cold/cold_ours.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/thumb/thumb_ours.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/time/time_ours.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/shake/shake_ours.mp4" type="video/mp4"></video></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
-        
         <div class="columns is-vcentered" style="margin-top: 2rem;">
           <div class="column">
             <div style="display: flex; flex-direction: column; align-items: center;">
@@ -185,57 +231,23 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
-    <!--/ Results. -->
-
-
-    <!-- Contributions. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Contributions</h2>
-
-        <div class="content has-text-justified">
-          <ul>
-            <li>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Contributions. -->
 
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
+      <a class="icon-link" href="./static/videos/nerfies_paper.pdf"><i class="fas fa-file-pdf"></i></a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled><i class="fab fa-github"></i></a>
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
+          <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+          <p>Source code borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
         </div>
       </div>
     </div>
@@ -244,4 +256,3 @@
 
 </body>
 </html>
-
