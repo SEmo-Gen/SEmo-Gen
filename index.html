@@ -36,29 +36,30 @@
       margin-top: 20px;
     }
     
-    /* 关键修改：强制单元格内容垂直居中 */
+    /* 强制所有单元格内容垂直居中 */
     .comparison-table td {
       padding: 10px 5px;
       text-align: center;
-      vertical-align: middle !important; /* 确保文字与视频中线对齐 */
+      vertical-align: middle !important;
     }
 
     .comparison-table th {
-      padding: 10px 5px;
+      padding: 15px 5px;
       text-align: center;
-      vertical-align: bottom; /* 表头文字对齐到底部，方便下方衔接视频 */
+      vertical-align: bottom;
     }
 
     .comparison-table video {
       width: 100%;
       border: 1px solid #333;
       border-radius: 4px;
-      display: block; /* 消除视频下方的微小间隙 */
+      display: block;
     }
 
+    /* 通用模型名称样式 */
     .model-name {
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-weight: 600;
+      font-size: 1.05rem;
       color: #363636;
     }
 
@@ -69,21 +70,28 @@
     }
 
     .emoji-icon {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
-    /* 突出 Ours 行 */
+    /* --- 核心修改：针对 Ours 行的加粗和高亮 --- */
     .ours-row {
-      background-color: rgba(160, 99, 211, 0.05); /* 淡淡的紫色背景 */
+      background-color: rgba(160, 99, 211, 0.08); /* 略微加深背景色 */
     }
+
     .ours-row .model-name {
       color: #A063D3;
+      font-weight: 900 !important; /* 极粗体 */
+      font-size: 1.3rem !important;  /* 增大字号，使其在对比中脱颖而出 */
+      text-transform: uppercase;     /* 可选：转为大写更具冲击力 */
     }
+
     .ours-row video {
-      border: 2px solid #A063D3;
+      border: 2.5px solid #A063D3;  /* 边框加粗 */
+      box-shadow: 0 0 10px rgba(160, 99, 211, 0.2); /* 添加微弱发光感 */
     }
+    /* -------------------------------------- */
   </style>
 </head>
 
@@ -112,56 +120,8 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/teaser.png" alt="Teaser figure" style="width: 100%;">
-      <h2 class="subtitle has-text-centered">
-        SEmo-Gen generates emotion-guided and semantically aligned 3D motion, expression, and audio driven by real-world scenarios.
-      </h2>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3" style="margin-bottom: 2rem;">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            In the real world, human behaviors are not merely mechanical executions (e.g., lifting the right hand) but complex reactions driven by scenario semantics and emotional states (e.g., stepping back and covering the mouth in disbelief upon hearing shocking news). However, existing motion generation methods primarily focus on explicit action verbs, often neglecting the rich scenario-based semantics and emotional states that dictate movement style and dynamics. 
-            Moreover, neglecting the intrinsic synergy among the deeply interconnected modalities of motion, expression, and audio under shared semantic and affective contexts results in fragmented behaviors lacking coherence and authenticity.
-            In this paper, we propose SEmo-Gen, a unified framework for synchronized 3D motion, expression, and audio generation that enables fine-grained emotional differentiation across diverse scenario semantics. Marking a shift from instruction-following to scenario-comprehending and emotion-driven digital human synthesis.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered" style="margin-bottom: 3rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
-        <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
-        <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels.
-        </p>
-      </div>
-    </div>
-
-    <div class="columns is-centered" style="margin-bottom: 3rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Method</h2>
-        <img src="./static/images/teaser_v2.png" alt="Overview" style="width: 100%;">
-        <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Method Overview.</b> Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio.
-        </p>
-      </div>
-    </div>
-
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Comparison under complex scenario semantics</h2>
@@ -170,8 +130,7 @@
           <table class="comparison-table">
             <thead>
               <tr>
-                <th style="width: 120px;"></th>
-                <th class="scenario-text" style="color: #4A90E2;">
+                <th style="width: 130px;"></th> <th class="scenario-text" style="color: #4A90E2;">
                   <span class="emoji-icon">❄️</span>A person crosses the arms to stay warm in cold weather
                 </th>
                 <th class="scenario-text" style="color: #E91E63;">
@@ -194,7 +153,7 @@
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_mdm.mp4" type="video/mp4"></video></td>
               </tr>
               <tr>
-                <td class="model-name">Stable MoFusion</td>
+                <td class="model-name">StableMoFusion</td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_stablemofusion.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_stablemofusion.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_stablemofusion.mp4" type="video/mp4"></video></td>
@@ -240,41 +199,9 @@
         </div>
       </div>
     </div>
-
-    <div class="columns is-centered" style="margin-bottom: 3rem;">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
-        <div class="columns is-vcentered">
-          <div class="column">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-              <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
-                <source src="./static/videos_combined/say_hi_happy.mp4" type="video/mp4">
-              </video>
-              <p style="text-align: center;">Say Hi (Happy)</p>
-            </div>
-          </div>
-          <div class="column">
-            <div style="display: flex; flex-direction: column; align-items: center;">
-              <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
-                <source src="./static/videos_combined/write_on_the_blackboard_neutral.mp4" type="video/mp4">
-              </video>
-              <p style="text-align: center;">Write on the Blackboard (Neutral)</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    
     </div>
-
-  </div>
 </section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Source code from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>
