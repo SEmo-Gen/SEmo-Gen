@@ -120,8 +120,58 @@
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.png" alt="Teaser figure" style="width: 100%;">
+      <h2 class="subtitle has-text-centered">
+        SEmo-Gen generates emotion-guided and semantically aligned 3D motion, expression, and audio driven by real-world scenarios.
+      </h2>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-bottom: 2rem;">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In the real world, human behaviors are not merely mechanical executions (e.g., lifting the right hand) but complex reactions driven by scenario semantics and emotional states (e.g., stepping back and covering the mouth in disbelief upon hearing shocking news). However, existing motion generation methods primarily focus on explicit action verbs, often neglecting the rich scenario-based semantics and emotional states that dictate movement style and dynamics. 
+            Moreover, neglecting the intrinsic synergy among the deeply interconnected modalities of motion, expression, and audio under shared semantic and affective contexts results in fragmented behaviors lacking coherence and authenticity.
+            In this paper, we propose SEmo-Gen, a unified framework for synchronized 3D motion, expression, and audio generation that enables fine-grained emotional differentiation across diverse scenario semantics. Marking a shift from instruction-following to scenario-comprehending and emotion-driven digital human synthesis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
+        <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
+        <p class="has-text-justified" style="margin-top: 1.5rem;">
+          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Method</h2>
+        <img src="./static/images/teaser_v2.png" alt="Overview" style="width: 100%;">
+        <p class="has-text-justified" style="margin-top: 1.5rem;">
+          <b>Method Overview.</b> Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+<div class="container is-max-desktop">
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Comparison under complex scenario semantics</h2>
@@ -153,7 +203,7 @@
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_mdm.mp4" type="video/mp4"></video></td>
               </tr>
               <tr>
-                <td class="model-name">StableMoFusion</td>
+                <td class="model-name">Stable MoFusion</td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_stablemofusion.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_stablemofusion.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_stablemofusion.mp4" type="video/mp4"></video></td>
@@ -190,18 +240,50 @@
               <tr class="ours-row">
                 <td class="model-name">Ours</td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_ours.mp4" type="video/mp4"></video></td>
-                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_ours_v2.mp4" type="video/mp4"></video></td>
-                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_ours_v2.mp4" type="video/mp4"></video></td>
-                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_ours_v3.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_ours.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_ours.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_ours.mp4" type="video/mp4"></video></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    
+
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
+        <div class="columns is-vcentered">
+          <div class="column">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
+                <source src="./static/videos_combined/say_hi_happy.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center;">Say Hi (Happy)</p>
+            </div>
+          </div>
+          <div class="column">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
+                <source src="./static/videos_combined/write_on_the_blackboard_neutral.mp4" type="video/mp4">
+              </video>
+              <p style="text-align: center;">Write on the Blackboard (Neutral)</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+  </div>
 </section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Source code from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
