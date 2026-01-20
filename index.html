@@ -28,30 +28,61 @@
   <script src="./static/js/index.js"></script>
 
   <style>
+    /* 对比表格基础样式 */
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
+      margin-top: 20px;
     }
-    .comparison-table td, .comparison-table th {
-      padding: 5px;
+    
+    /* 关键修改：强制单元格内容垂直居中 */
+    .comparison-table td {
+      padding: 10px 5px;
       text-align: center;
-      vertical-align: middle;
+      vertical-align: middle !important; /* 确保文字与视频中线对齐 */
     }
+
+    .comparison-table th {
+      padding: 10px 5px;
+      text-align: center;
+      vertical-align: bottom; /* 表头文字对齐到底部，方便下方衔接视频 */
+    }
+
     .comparison-table video {
       width: 100%;
       border: 1px solid #333;
       border-radius: 4px;
+      display: block; /* 消除视频下方的微小间隙 */
     }
+
     .model-name {
       font-weight: bold;
       font-size: 1.1rem;
+      color: #363636;
     }
+
     .scenario-text {
       font-weight: bold;
       font-size: 0.9rem;
-      line-height: 1.2;
-      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .emoji-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* 突出 Ours 行 */
+    .ours-row {
+      background-color: rgba(160, 99, 211, 0.05); /* 淡淡的紫色背景 */
+    }
+    .ours-row .model-name {
+      color: #A063D3;
+    }
+    .ours-row video {
+      border: 2px solid #A063D3;
     }
   </style>
 </head>
@@ -66,7 +97,6 @@
     </a>
   </div>
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
@@ -102,10 +132,7 @@
           <p>
             In the real world, human behaviors are not merely mechanical executions (e.g., lifting the right hand) but complex reactions driven by scenario semantics and emotional states (e.g., stepping back and covering the mouth in disbelief upon hearing shocking news). However, existing motion generation methods primarily focus on explicit action verbs, often neglecting the rich scenario-based semantics and emotional states that dictate movement style and dynamics. 
             Moreover, neglecting the intrinsic synergy among the deeply interconnected modalities of motion, expression, and audio under shared semantic and affective contexts results in fragmented behaviors lacking coherence and authenticity.
-            In this paper, we propose SEmo-Gen, a unified framework for synchronized 3D motion, expression, and audio generation that enables fine-grained emotional differentiation across diverse scenario semantics.
-            To address semantic–emotion conflicts, SEmo-Gen introduces the decoupled semantic-emotion schemes and the custom kinematic loss that enhances emotion-aware physical expressiveness.
-            Furthermore, we present SEmo-X, the first multimodal dataset that provides strictly aligned motion, bilingual audio, utterances, emotions, and scenario semantics, along with an emotion-controllable, scenario-guided human motion generation benchmark SEmo-bench on the SMPL-X format.
-            Extensive experiments confirm that SEmo-Gen significantly outperforms baselines in emotion expressivity and semantic alignment, marking a shift from instruction-following to scenario-comprehending and emotion-driven digital human synthesis.
+            In this paper, we propose SEmo-Gen, a unified framework for synchronized 3D motion, expression, and audio generation that enables fine-grained emotional differentiation across diverse scenario semantics. Marking a shift from instruction-following to scenario-comprehending and emotion-driven digital human synthesis.
           </p>
         </div>
       </div>
@@ -120,7 +147,7 @@
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Dataset</h2>
         <img src="./static/images/dataset_demo.png" alt="Dataset demo" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels. The entire dataset is based on 63 common real-world scenes, where five subjects perform emotionally and motionally appropriate actions based on specific scene utterances and record emotion-rich audio.
+          <b>Dataset Demo.</b> We introduce the SEmo-X dataset, which is the first 3D motion dataset that aligns five elements: motion, bilingual audio, utterances, scenario text, and emotion labels.
         </p>
       </div>
     </div>
@@ -130,7 +157,7 @@
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Method</h2>
         <img src="./static/images/teaser_v2.png" alt="Overview" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Method Overview.</b> Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio. The Audio branch synthesizes emotion-aware mel-spectrograms and audio to establish a cross-modal foundation. Simultaneously, the Motion branch integrates $f_{emo}$ and $f_{sem}$ through an expression generator and SEmo-DiT, yielding synchronized expressions and holistic poses.
+          <b>Method Overview.</b> Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio.
         </p>
       </div>
     </div>
@@ -142,19 +169,19 @@
         <div class="content">
           <table class="comparison-table">
             <thead>
-<tr>
+              <tr>
                 <th style="width: 120px;"></th>
                 <th class="scenario-text" style="color: #4A90E2;">
-                  <span class="emoji-icon">❄️</span>A person crosses the arms to stay warm in cold weather.
+                  <span class="emoji-icon">❄️</span>A person crosses the arms to stay warm in cold weather
                 </th>
                 <th class="scenario-text" style="color: #E91E63;">
-                  <span class="emoji-icon">👍</span>A person gives a thumbs up to show the appreciation.
+                  <span class="emoji-icon">👍</span>A person gives a thumbs up to show the appreciation
                 </th>
                 <th class="scenario-text" style="color: #FBC02D;">
-                  <span class="emoji-icon">⏰</span>A person points to their watch to indicate running out of time.
+                  <span class="emoji-icon">⏰</span>A person points to their watch to indicate running out of time
                 </th>
                 <th class="scenario-text" style="color: #7CB342;">
-                  <span class="emoji-icon">🤝</span>A person extends their hand to shake hands and begin conversations.
+                  <span class="emoji-icon">🤝</span>A person extends their hand to shake hands and begin conversations
                 </th>
               </tr>
             </thead>
@@ -201,12 +228,12 @@
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_motioncraft.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_motioncraft.mp4" type="video/mp4"></video></td>
               </tr>
-              <tr>
-                <td class="model-name" style="color: #A063D3;">Ours</td>
-                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/cold/cold_ours.mp4" type="video/mp4"></video></td>
-                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/thumb/thumb_ours_v2.mp4" type="video/mp4"></video></td>
-                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/time/time_ours_v2.mp4" type="video/mp4"></video></td>
-                <td><video autoplay muted loop playsinline style="border: 2px solid #A063D3;"><source src="./static/video_sem/shake/shake_ours_v3.mp4" type="video/mp4"></video></td>
+              <tr class="ours-row">
+                <td class="model-name">Ours</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_ours.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_ours_v2.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_ours_v2.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_ours_v3.mp4" type="video/mp4"></video></td>
               </tr>
             </tbody>
           </table>
@@ -217,15 +244,13 @@
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
-        <div class="columns is-vcentered" style="margin-top: 2rem;">
+        <div class="columns is-vcentered">
           <div class="column">
             <div style="display: flex; flex-direction: column; align-items: center;">
               <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
                 <source src="./static/videos_combined/say_hi_happy.mp4" type="video/mp4">
               </video>
-              <p style="margin: 0 1rem; font-size: 1rem; color: #363636; text-align: center; min-height: 3.2em;">
-                Say Hi (Happy)
-              </p>
+              <p style="text-align: center;">Say Hi (Happy)</p>
             </div>
           </div>
           <div class="column">
@@ -233,9 +258,7 @@
               <video autoplay controls muted loop playsinline height="300" style="margin-bottom: 0.5rem;">
                 <source src="./static/videos_combined/write_on_the_blackboard_neutral.mp4" type="video/mp4">
               </video>
-              <p style="margin: 0 1rem; font-size: 1rem; color: #363636; text-align: center; min-height: 3.2em;">
-                Write on the Blackboard (Neutral)
-              </p>
+              <p style="text-align: center;">Write on the Blackboard (Neutral)</p>
             </div>
           </div>
         </div>
@@ -248,16 +271,7 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link" href="./static/videos/nerfies_paper.pdf"><i class="fas fa-file-pdf"></i></a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled><i class="fab fa-github"></i></a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
-          <p>Source code borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
-        </div>
-      </div>
+      <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Source code from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
     </div>
   </div>
 </footer>
