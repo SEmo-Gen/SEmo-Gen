@@ -59,7 +59,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/teaser.png" alt="Teaser figure" style="width: 100%;">
+      <img src="./static/images/teaser_v2.png" alt="Teaser figure" style="width: 100%;">
       <h2 class="subtitle has-text-centered">
         SEmo-Gen generates emotion-guided and semantically aligned 3D motion, expression, and audio driven by real-world scenarios.
       </h2>
@@ -151,8 +151,7 @@
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Method</h2>
         <img src="./static/images/pipeline.png" alt="Overview" style="width: 100%;">
         <p class="has-text-justified" style="margin-top: 1.5rem;">
-          <b>Method Overview.</b> Our unified framework consists of two generation modules: Aligned Utterance-Audio Generation and Text-to-Motion Generation. Both modules take scenario text and emotion label as input, with audio features serving as a bridge, generating semantically consistent and pose-aligned motion and audio.</b>
-          <!-- Our framework takes an emotion label and a scenario text as inputs, which are fed into two branches: an Aligned Utterance–Audio Generation branch and a Text-to-Motion Generation branch. The two branches are connected via the audio feature(i.e., the mel-spectrogram), enabling the generation of emotion-guided and temporally synchronized motion, facial expressions, and audio in the specific scene. -->
+          <b>Method Overview.</b> Overview. Taking scenario semantics and emotion labels as inputs, SEmo-Gen employs a dual-branch architecture to generate aligned holistic poses, expressions, and audio. The Audio branch synthesizes emotion-aware mel-spectrograms and audio to establish a cross-modal foundation. Simultaneously, the Motion branch integrates $f_{emo}$ and $f_{sem}$ through an expression generator and SEmo-DiT, yielding synchronized expressions and holistic poses.
         </p>
       </div>
     </div>
