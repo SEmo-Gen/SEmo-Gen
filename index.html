@@ -248,6 +248,80 @@
       </div>
     </div>
 
+<div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 1rem;">Comparison in different emotions</h2>
+        
+        <div class="has-text-centered" style="background-color: #f0f7ff; border-radius: 8px; padding: 10px; margin-bottom: 20px; border: 1px solid #d1e3f8;">
+          <p class="is-size-5"><strong>Scenario Semantic: A person waves to decline.</strong></p>
+        </div>
+
+        <div class="content">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 130px;"></th> 
+                <th class="scenario-text" style="color: #E91E63;">
+                  <span class="emoji-icon">😊</span>Happy
+                </th>
+                <th class="scenario-text" style="color: #B8860B;">
+                  <span class="emoji-icon">😐</span>Normal
+                </th>
+                <th class="scenario-text" style="color: #9C27B0;">
+                  <span class="emoji-icon">😨</span>Afraid
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="model-name">MDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MDM_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MDM_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MDM_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">StableMoFusion</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/stablemofusion_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/stablemofusion_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/stablemofusion_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionGPT</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motiongpt_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motiongpt_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motiongpt_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">SALAD</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/salad_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/salad_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/salad_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MARDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MARDM_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MARDM_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MARDM_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionCraft</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motioncraft_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motioncraft_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motioncraft_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr class="ours-row">
+                <td class="model-name">Ours</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/ours_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/ours_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/ours_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    
     <div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation</h2>
