@@ -233,7 +233,7 @@
               
               <span class="motion-label">3D Motion</span>
               <video class="dataset-video" autoplay muted loop playsinline>
-                <source src="./static/video_dataset_demo/id3_habit15_4_en.mp4" type="video/mp4">
+                <source src="./static/video_dataset_demo/id3_habit15_4_en_mask.mp4" type="video/mp4">
               </video>
 
               <div class="mt-auto">
@@ -265,7 +265,7 @@
               
               <span class="motion-label">3D Motion</span>
               <video class="dataset-video" autoplay muted loop playsinline>
-                <source src="./static/video_dataset_demo/id1_habit6_4_en.mp4" type="video/mp4">
+                <source src="./static/video_dataset_demo/id1_habit6_4_en_mask.mp4" type="video/mp4">
               </video>
 
               <div class="mt-auto">
@@ -297,7 +297,7 @@
               
               <span class="motion-label">3D Motion</span>
               <video class="dataset-video" autoplay muted loop playsinline>
-                <source src="./static/video_dataset_demo/id4_class_15_3_zh.mp4" type="video/mp4">
+                <source src="./static/video_dataset_demo/id4_class_15_3_zh_mask.mp4" type="video/mp4">
               </video>
 
               <div class="mt-auto">
@@ -345,11 +345,18 @@
           <table class="comparison-table">
             <thead>
               <tr>
-                <th style="width: 130px;"></th> 
-                <th class="scenario-text" style="color: #4A90E2;"><span class="emoji-icon">❄️</span>A person crosses arms to stay warm</th>
-                <th class="scenario-text" style="color: #E91E63;"><span class="emoji-icon">👍</span>A person gives a thumbs up</th>
-                <th class="scenario-text" style="color: #FBC02D;"><span class="emoji-icon">⏰</span>A person points to their watch</th>
-                <th class="scenario-text" style="color: #7CB342;"><span class="emoji-icon">🤝</span>A person extends hand to shake</th>
+                <th style="width: 130px;"></th> <th class="scenario-text" style="color: #4A90E2;">
+                  <span class="emoji-icon">❄️</span>A person crosses the arms to stay warm in cold weather
+                </th>
+                <th class="scenario-text" style="color: #E91E63;">
+                  <span class="emoji-icon">👍</span>A person gives a thumbs up to show the appreciation
+                </th>
+                <th class="scenario-text" style="color: #FBC02D;">
+                  <span class="emoji-icon">⏰</span>A person points to their watch to indicate running out of time
+                </th>
+                <th class="scenario-text" style="color: #7CB342;">
+                  <span class="emoji-icon">🤝</span>A person extends their hand to shake hands and begin conversations
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -359,6 +366,41 @@
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_mdm.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_mdm.mp4" type="video/mp4"></video></td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_mdm.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">StableMoFusion</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_stablemofusion.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_stablemofusion.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_stablemofusion.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_stablemofusion.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionGPT</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_motiongpt.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_motiongpt.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_motiongpt.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_motiongpt.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">SALAD</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_salad.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_salad.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_salad.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_salad.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MARDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_MARDM.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_MARDM.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_MARDM.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_MARDM.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionCraft</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/cold/cold_motioncraft.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/thumb/thumb_motioncraft.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/time/time_motioncraft.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_sem/shake/shake_motioncraft.mp4" type="video/mp4"></video></td>
               </tr>
               <tr class="ours-row">
                 <td class="model-name">Ours</td>
@@ -373,7 +415,8 @@
       </div>
     </div>
 
-    <div class="columns is-centered" style="margin-bottom: 3rem;">
+
+<div class="columns is-centered" style="margin-bottom: 3rem;">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered" style="margin-bottom: 1rem;">Comparison in different emotions</h2>
         <div class="has-text-centered" style="background-color: #f0f7ff; border-radius: 8px; padding: 10px; margin-bottom: 20px; border: 1px solid #d1e3f8;">
@@ -384,12 +427,54 @@
             <thead>
               <tr>
                 <th style="width: 130px;"></th> 
-                <th class="scenario-text" style="color: #E91E63;"><span class="emoji-icon">😊</span>Happy</th>
-                <th class="scenario-text" style="color: #B8860B;"><span class="emoji-icon">😐</span>Normal</th>
-                <th class="scenario-text" style="color: #9C27B0;"><span class="emoji-icon">😨</span>Afraid</th>
+                <th class="scenario-text" style="color: #E91E63;">
+                  <span class="emoji-icon">😊</span>Happy
+                </th>
+                <th class="scenario-text" style="color: #B8860B;">
+                  <span class="emoji-icon">😐</span>Normal
+                </th>
+                <th class="scenario-text" style="color: #9C27B0;">
+                  <span class="emoji-icon">😨</span>Afraid
+                </th>
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td class="model-name">MDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MDM_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MDM_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MDM_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">StableMoFusion</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/stablemofusion_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/stablemofusion_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/stablemofusion_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionGPT</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motiongpt_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motiongpt_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motiongpt_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">SALAD</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/salad_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/salad_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/salad_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MARDM</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MARDM_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MARDM_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/MARDM_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
+              <tr>
+                <td class="model-name">MotionCraft</td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motioncraft_happy.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motioncraft_normal.mp4" type="video/mp4"></video></td>
+                <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/motioncraft_afraid.mp4" type="video/mp4"></video></td>
+              </tr>
               <tr class="ours-row">
                 <td class="model-name">Ours</td>
                 <td><video autoplay muted loop playsinline><source src="./static/video_emodiff/ours_happy_v2.mp4" type="video/mp4"></video></td>
@@ -425,17 +510,17 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
+
+
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+      <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Source code from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
     </div>
   </div>
 </footer>
-
 </body>
 </html>
