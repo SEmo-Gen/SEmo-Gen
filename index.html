@@ -92,12 +92,12 @@
       box-shadow: 0 0 10px rgba(160, 99, 211, 0.2); 
     }
 
-    /* --- Dataset Demo 卡片样式 (浅灰色背景 & 间距优化) --- */
+    /* --- Dataset Demo 卡片样式 --- */
     .dataset-container {
       margin-top: 2rem;
     }
     .dataset-item {
-      background-color: #f5f5f5; /* 浅灰色背景 */
+      background-color: #f5f5f5; 
       border-radius: 15px;
       padding: 25px;
       height: 100%;
@@ -161,24 +161,18 @@
       margin-top: auto;
     }
 
-    /* --- 新增 Generation Results 高级卡片样式 --- */
-    .results-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 2rem;
-    }
-    .result-card {
-      background: #ffffff;
+    /* --- Generation Results Carousel 样式优化 --- */
+    .results-carousel .item {
+      margin: 10px;
+      border: 1px solid #efefef;
       border-radius: 12px;
+      background: #fff;
       overflow: hidden;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
-      border: 1px solid #eee;
-    }
-    .result-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(160, 99, 211, 0.15);
     }
     .result-video {
       width: 100%;
@@ -187,6 +181,7 @@
     }
     .result-info {
       padding: 12px;
+      width: 100%;
       background: #fff;
       border-top: 1px solid #f0f0f0;
       text-align: center;
@@ -196,9 +191,10 @@
       font-size: 0.95rem;
       color: #4a4a4a;
     }
-    .result-card.playing {
-      border-color: #A063D3;
-      box-shadow: 0 0 15px rgba(160, 99, 211, 0.4);
+    /* 播放状态的高亮效果 */
+    .results-carousel .item.playing {
+      border: 1.5px solid #A063D3;
+      box-shadow: 0 0 15px rgba(160, 99, 211, 0.3);
     }
   </style>
 </head>
@@ -537,9 +533,10 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Generation Results</h2>
-    <div class="results-container">
+    
+    <div id="results-carousel" class="carousel results-carousel">
       
-      <div class="result-card">
+      <div class="item">
         <video class="result-video gen-res-video" controls preload="metadata">
           <source src="./static/video_gen/bright_mp4.mp4" type="video/mp4">
         </video>
@@ -548,7 +545,7 @@
         </div>
       </div>
 
-      <div class="result-card">
+      <div class="item">
         <video class="result-video gen-res-video" controls preload="metadata">
           <source src="./static/video_gen/fan_mp4.mp4" type="video/mp4">
         </video>
@@ -557,7 +554,7 @@
         </div>
       </div>
 
-      <div class="result-card">
+      <div class="item">
         <video class="result-video gen-res-video" controls preload="metadata">
           <source src="./static/video_gen/hi_mp4.mp4" type="video/mp4">
         </video>
@@ -566,7 +563,7 @@
         </div>
       </div>
 
-      <div class="result-card">
+      <div class="item">
         <video class="result-video gen-res-video" controls preload="metadata">
           <source src="./static/video_gen/hug_mp4.mp4" type="video/mp4">
         </video>
@@ -575,7 +572,7 @@
         </div>
       </div>
 
-      <div class="result-card">
+      <div class="item">
         <video class="result-video gen-res-video" controls preload="metadata">
           <source src="./static/video_gen/rain_mp4.mp4" type="video/mp4">
         </video>
@@ -597,27 +594,39 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  $(document).ready(function() {
+    // 1. 初始化 Bulma Carousel
+    const options = {
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      pagination: false,
+    };
+    bulmaCarousel.attach('#results-carousel', options);
+
+    // 2. 视频互斥播放逻辑
     const videos = document.querySelectorAll('.gen-res-video');
     videos.forEach(video => {
       video.addEventListener('play', function() {
-        // 暂停其他所有正在播放的生成结果视频
+        // 暂停其他所有视频
         videos.forEach(otherVideo => {
           if (otherVideo !== video) {
             otherVideo.pause();
-            otherVideo.closest('.result-card').classList.remove('playing');
+            otherVideo.closest('.item').classList.remove('playing');
           }
         });
         // 为当前卡片添加播放状态样式
-        video.closest('.result-card').classList.add('playing');
+        video.closest('.item').classList.add('playing');
       });
 
       video.addEventListener('pause', function() {
-        video.closest('.result-card').classList.remove('playing');
+        video.closest('.item').classList.remove('playing');
       });
 
       video.addEventListener('ended', function() {
-        video.closest('.result-card').classList.remove('playing');
+        video.closest('.item').classList.remove('playing');
       });
     });
   });
