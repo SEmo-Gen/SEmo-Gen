@@ -196,6 +196,19 @@
       border: 1.5px solid #A063D3;
       box-shadow: 0 0 15px rgba(160, 99, 211, 0.3);
     }
+    /* 选中状态的卡片设计 */
+    .item.active-card {
+      transform: scale(1.05); /* 放大 1.05 倍 */
+      border: 3px solid #A063D3 !important; /* 紫色边框 */
+      box-shadow: 0 10px 20px rgba(160, 99, 211, 0.3) !important; /* 增强投影 */
+      z-index: 10; /* 确保放大时不会被旁边的卡片遮挡 */
+      transition: all 0.3s ease; /* 丝滑过渡动画 */
+}
+
+/* 默认状态也要加过渡动画，否则缩回时会生硬 */
+.item {
+  transition: all 0.3s ease;
+}
   </style>
 </head>
 
@@ -623,27 +636,28 @@
     };
     bulmaCarousel.attach('#results-carousel', options);
 
-    // 2. 视频互斥播放逻辑
+// 2. 视频互斥播放与卡片高亮逻辑
     const videos = document.querySelectorAll('.gen-res-video');
     videos.forEach(video => {
       video.addEventListener('play', function() {
-        // 暂停其他所有视频
+        // 暂停其他所有视频，并移除所有卡片的高亮类
         videos.forEach(otherVideo => {
           if (otherVideo !== video) {
             otherVideo.pause();
-            otherVideo.closest('.item').classList.remove('playing');
+            otherVideo.closest('.item').classList.remove('active-card');
           }
         });
-        // 为当前卡片添加播放状态样式
-        video.closest('.item').classList.add('playing');
+        // 为当前点击播放的视频卡片添加高亮和放大类
+        video.closest('.item').classList.add('active-card');
       });
 
+      // 当视频手动暂停或结束时，移除放大效果（可选，如果你想保持放大直到点下一个，可以删掉这两段）
       video.addEventListener('pause', function() {
-        video.closest('.item').classList.remove('playing');
+        // video.closest('.item').classList.remove('active-card');
       });
 
       video.addEventListener('ended', function() {
-        video.closest('.item').classList.remove('playing');
+        video.closest('.item').classList.remove('active-card');
       });
     });
   });
