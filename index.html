@@ -209,6 +209,20 @@
 .item {
   transition: all 0.3s ease;
 }
+/* Ensure the parent columns don't clip the zoomed card */
+.columns {
+  overflow: visible !important;
+}
+
+/* Updated active-card styles */
+.item.active-card {
+  transform: scale(1.08); /* Slightly more noticeable */
+  border: 3px solid #A063D3 !important; 
+  box-shadow: 0 10px 30px rgba(160, 99, 211, 0.5) !important; /* Stronger glow */
+  z-index: 99; /* Bring to front */
+  background-color: #fff;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+}
   </style>
 </head>
 
@@ -624,43 +638,40 @@
 </footer>
 
 <script>
-  $(document).ready(function() {
-    // 1. 初始化 Bulma Carousel
-    const options = {
-      slidesToScroll: 1,
-      slidesToShow: 3,
-      loop: true,
-      infinite: true,
-      autoplay: false,
-      pagination: false,
-    };
-    bulmaCarousel.attach('#results-carousel', options);
-
-// 2. 视频互斥播放与卡片高亮逻辑
+$(document).ready(function() {
     const videos = document.querySelectorAll('.gen-res-video');
+
     videos.forEach(video => {
-      video.addEventListener('play', function() {
-        // 暂停其他所有视频，并移除所有卡片的高亮类
-        videos.forEach(otherVideo => {
-          if (otherVideo !== video) {
-            otherVideo.pause();
-            otherVideo.closest('.item').classList.remove('active-card');
-          }
+        video.addEventListener('play', function() {
+            // 1. Pause all other videos and remove their highlights
+            videos.forEach(otherVideo => {
+                if (otherVideo !== video) {
+                    otherVideo.pause();
+                    otherVideo.closest('.item').classList.remove('active-card');
+                }
+            });
+
+            // 2. Add highlight to the currently playing video's card
+            const card = video.closest('.item');
+            if (card) {
+                card.classList.add('active-card');
+            }
         });
-        // 为当前点击播放的视频卡片添加高亮和放大类
-        video.closest('.item').classList.add('active-card');
-      });
 
-      // 当视频手动暂停或结束时，移除放大效果（可选，如果你想保持放大直到点下一个，可以删掉这两段）
-      video.addEventListener('pause', function() {
-        // video.closest('.item').classList.remove('active-card');
-      });
-
-      video.addEventListener('ended', function() {
-        video.closest('.item').classList.remove('active-card');
-      });
+        // Optional: Remove highlight when the video ends
+        video.addEventListener('ended', function() {
+            video.closest('.item').classList.remove('active-card');
+        });
+        
+        // Optional: If you want it to shrink when manually paused
+        video.addEventListener('pause', function() {
+             // Only remove if it's not the end (user clicked pause)
+             if (!video.ended) {
+                 video.closest('.item').classList.remove('active-card');
+             }
+        });
     });
-  });
+});
 </script>
 
 </body>
