@@ -161,86 +161,48 @@
       margin-top: auto;
     }
 
-    /* --- Generation Results Carousel 样式优化 --- */
-    .results-carousel .item {
-      margin: 10px;
-      border: 1px solid #efefef;
-      border-radius: 12px;
-      background: #fff;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-    .result-video {
-      width: 100%;
-      display: block;
-      background: #000;
-    }
-    .result-info {
-      padding: 12px;
-      width: 100%;
-      background: #fff;
-      border-top: 1px solid #f0f0f0;
-      text-align: center;
-    }
-    .result-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: #4a4a4a;
-    }
-    /* 播放状态的高亮效果 */
-    .results-carousel .item.playing {
-      border: 1.5px solid #A063D3;
-      box-shadow: 0 0 15px rgba(160, 99, 211, 0.3);
-    }
-    /* 选中状态的卡片设计 */
-    .item.active-card {
-      transform: scale(1.05); /* 放大 1.05 倍 */
-      border: 3px solid #A063D3 !important; /* 紫色边框 */
-      box-shadow: 0 10px 20px rgba(160, 99, 211, 0.3) !important; /* 增强投影 */
-      z-index: 10; /* 确保放大时不会被旁边的卡片遮挡 */
-      transition: all 0.3s ease; /* 丝滑过渡动画 */
-}
-/* 确保放大时不会被父级容器截断 */
-.section, .container, .columns {
-  overflow: visible !important;
-}
-
-/* 默认状态 */
-.item {
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* --- Generation Results 卡片基础样式 --- */
+.results-carousel .item, .column .item {
+  margin: 10px;
+  border: 1px solid #efefef;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  /* 统一过渡动画：使用 cubic-bezier 让回弹更有质感 */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
   position: relative;
   z-index: 1;
 }
 
-/* 高亮播放状态 */
-.item.active-card {
-  transform: scale(1.08) !important;
-  border: 3px solid #A063D3 !important;
-  box-shadow: 0 15px 45px rgba(160, 99, 211, 0.4) !important;
-  z-index: 99 !important; /* 确保在最上层 */
-  background-color: #fff;
-}
-/* 默认状态也要加过渡动画，否则缩回时会生硬 */
-.item {
-  transition: all 0.3s ease;
-}
-/* Ensure the parent columns don't clip the zoomed card */
-.columns {
+/* 确保放大时不会被父级容器（如 Bulma 的 columns）截断 */
+.section, .container, .columns, .column {
   overflow: visible !important;
 }
 
-/* Updated active-card styles */
+/* 激活/播放状态的高亮放大效果 */
 .item.active-card {
-  transform: scale(1.08); /* Slightly more noticeable */
-  border: 3px solid #A063D3 !important; 
-  box-shadow: 0 10px 30px rgba(160, 99, 211, 0.5) !important; /* Stronger glow */
-  z-index: 99; /* Bring to front */
-  background-color: #fff;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+  transform: scale(1.08) !important; /* 放大倍数 */
+  border: 3px solid #A063D3 !important; /* 紫色边框 */
+  box-shadow: 0 15px 35px rgba(160, 99, 211, 0.4) !important; /* 增强发光感 */
+  z-index: 99 !important; /* 确保置于最顶层，不被相邻卡片遮挡 */
+}
+
+.result-video {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
+.result-info {
+  padding: 12px;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
 }
   </style>
 </head>
