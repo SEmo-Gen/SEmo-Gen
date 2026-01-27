@@ -204,7 +204,26 @@
       z-index: 10; /* 确保放大时不会被旁边的卡片遮挡 */
       transition: all 0.3s ease; /* 丝滑过渡动画 */
 }
+/* 确保放大时不会被父级容器截断 */
+.section, .container, .columns {
+  overflow: visible !important;
+}
 
+/* 默认状态 */
+.item {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  z-index: 1;
+}
+
+/* 高亮播放状态 */
+.item.active-card {
+  transform: scale(1.08) !important;
+  border: 3px solid #A063D3 !important;
+  box-shadow: 0 15px 45px rgba(160, 99, 211, 0.4) !important;
+  z-index: 99 !important; /* 确保在最上层 */
+  background-color: #fff;
+}
 /* 默认状态也要加过渡动画，否则缩回时会生硬 */
 .item {
   transition: all 0.3s ease;
@@ -639,36 +658,42 @@
 
 <script>
 $(document).ready(function() {
-    const videos = document.querySelectorAll('.gen-res-video');
+    // 获取 Generation Results 部分的所有视频
+    const resVideos = document.querySelectorAll('.gen-res-video');
 
-    videos.forEach(video => {
+    resVideos.forEach(video => {
+        // 当点击播放时
         video.addEventListener('play', function() {
-            // 1. Pause all other videos and remove their highlights
-            videos.forEach(otherVideo => {
+            resVideos.forEach(otherVideo => {
                 if (otherVideo !== video) {
                     otherVideo.pause();
-                    otherVideo.closest('.item').classList.remove('active-card');
+                    // 移除其他卡片的高亮
+                    const otherCard = otherVideo.closest('.item');
+                    if(otherCard) otherCard.classList.remove('active-card');
                 }
             });
 
-            // 2. Add highlight to the currently playing video's card
-            const card = video.closest('.item');
-            if (card) {
-                card.classList.add('active-card');
+            // 给当前播放的视频所在的卡片添加高亮
+            const currentCard = video.closest('.item');
+            if (currentCard) {
+                currentCard.classList.add('active-card');
             }
         });
 
-        // Optional: Remove highlight when the video ends
-        video.addEventListener('ended', function() {
-            video.closest('.item').classList.remove('active-card');
-        });
-        
-        // Optional: If you want it to shrink when manually paused
+        // 视频暂停时移除高亮 (如果希望播放完才缩小，可以只保留 ended 事件)
         video.addEventListener('pause', function() {
-             // Only remove if it's not the end (user clicked pause)
-             if (!video.ended) {
-                 video.closest('.item').classList.remove('active-card');
-             }
+            const currentCard = video.closest('.item');
+            if (currentCard) {
+                currentCard.classList.remove('active-card');
+            }
+        });
+
+        // 视频结束时移除高亮
+        video.addEventListener('ended', function() {
+            const currentCard = video.closest('.item');
+            if (currentCard) {
+                currentCard.classList.remove('active-card');
+            }
         });
     });
 });
